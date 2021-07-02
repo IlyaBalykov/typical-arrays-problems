@@ -1,30 +1,26 @@
 
 exports.min = function min (array) {
-    if (array !== "") {
-        let min = Math.min.apply(null,array);
-        console.log(min);
-        return min;
-    } else {
+    let min = Math.min.apply(null, array);
+    if (min == "-Infinity" || min =="Infinity") {
         return 0
+    } else {
+        return min;
     }
 }
 
 exports.max = function max (array) {
-    if (array !== "") {
-        let max = Math.max.apply(null,array);
-        console.log(max);
-        return max;
-    } else {
+    let max = Math.max.apply(null, array);
+    if (max == "-Infinity" || max =="Infinity") {
         return 0
+    } else {
+        return max;
     }
 }
 
 exports.avg = function avg (array) {
-    if (array !== "") {
+    if (Array.isArray(array) && array.length !== 0) {
         const avg = (acc, current) => acc + current;
-        let res = (array.reduce(avg))/array.length;
-        console.log(res);
-        return res;
+        return (array.reduce(avg))/array.length;
     } else {
         return 0
     }
